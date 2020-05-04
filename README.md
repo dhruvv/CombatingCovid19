@@ -2,7 +2,9 @@
 
 ## Introduction
 
-The Novel Coronavirus has done some damage to us all in these recent few months. It is still going to haunt us for a few more years..... And God knows how many more of these "Pandemics" we will have by then. To Assess the the infections, deaths, recovery, etc of a pandemic. we have built an SEIR Model. This Repo currently is written and all data generated around it currently supports a Prediction Model of Novel Coronairus in 300 days from 4/05/2020 (4th March 2020).
+The Novel Coronavirus has done some damage to us all in these recent few months. It is still going to haunt us for a few more years..... And God knows how many more of these "Pandemics" we will have by then. To Assess the the infections, deaths, recovery, etc of a pandemic. we have built an SEIR Model. This Repo currently is written and all data generated around it currently supports a Prediction Model of the Novel Coronairus in about 300 days from 4/05/2020 (4th March 2020).
+
+Testing Conditions: Windows 10.0.0.18363, 8GB Ram, Python 3.8 and Pip 20.0.2
 
 ## Special Libraries
 Networkx, Seirplus, Numpy, Pickle
