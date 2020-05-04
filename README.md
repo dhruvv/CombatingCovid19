@@ -7,6 +7,12 @@ The Novel Coronavirus has done some damage to us all in these recent few months.
 ## Special Libraries
 Networkx, Seirplus, Numpy, Pickle
 
+To Install the above libraries:
+```bash
+pip install networkx seirplus numpy pickle
+pip3 install networkx seirplus numpy pickle
+```
+
 Please Note: Don't use the pickle file extension if you are sharing it over the internet. Pickle is an Unencrypted file extension and can be easily tampered with. Since you will be loading the pickle file into your **Executable** python file. It can be potentially harmful.Use at your own risk.
 
 ## The SEIR Model
