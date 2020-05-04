@@ -34,7 +34,9 @@ In this Python codoe we are use the first three params. The rest are self evolov
 
 ## Using the Code
 Step 1: Edit hyperparams.py
+
 Step 2: Run episim.py
+
 Step 3: Use The Generated files as you wish
 
 ```Python
