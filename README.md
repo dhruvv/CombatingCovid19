@@ -11,7 +11,7 @@ Networkx, Seirplus, Numpy, Pickle
 
 To Install the above libraries:
 ```Bash
-pip install networkx seirplus numpy pickle
+pip install networkx seirsplus numpy pickle
 pip3 install networkx seirplus numpy pickle
 ```
 
