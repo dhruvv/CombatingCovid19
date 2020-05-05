@@ -33,7 +33,7 @@ The rates of transition between the states are given by the parameters:
 In this Python codoe we are use the first three params. The rest are self evoloving. It is upto you to change it.
 
 ## Using the Code
-Step 1: Edit hyperparams.py
+Step 1: Edit episim.py with your data 
 
 Step 2: Run episim.py
 
