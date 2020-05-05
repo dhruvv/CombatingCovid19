@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+<p>Welcome to Oxygen Corona Simulation for the NYAS Combating COVID-19 Challenge<p>
+<div id='map' style='width: 1000px; height: 800px;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibXJhbHBhY2EiLCJhIjoiY2pyYmV5dWg4MTJheDQzcGNxeGtleWx0bCJ9.SwBpLsVT9FGuA9JoEHg60w';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11'});
+map.on('load', function () {
+	map.addSource('district-geojson', {type: 'geojson', data: 'india_district.geojson'});
+
+}
+	);
+
+</script>
+</body>
+</html>

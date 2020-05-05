@@ -1,0 +1,107 @@
+!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>SEIRS Model of the Novel Coronavirus in India</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibXJhbHBhY2EiLCJhIjoiY2pyYmV5dWg4MTJheDQzcGNxeGtleWx0bCJ9.SwBpLsVT9FGuA9JoEHg60w';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/dark-v10',
+center: [78.9629, 21.7937],
+zoom: 4.5
+});
+ 
+map.on('load', function() {
+var layers = map.getStyle().layers;
+// Find the index of the first symbol layer in the map style
+var firstSymbolId;
+for (var i = 0; i < layers.length; i++) {
+if (layers[i].type === 'symbol') {
+firstSymbolId = layers[i].id;
+break;
+}
+}
+/*map.addSource('urban-areas', {
+'type': 'geojson',
+'data':
+'https://raw.githubusercontent.com/dhruvv/CombatingCovid19/master/india_district.geojson'
+});
+map.addLayer(
+{
+'id': 'urban-areas',
+'type': 'fill',
+'source': 'urban-areas',
+'layout': {},
+'paint': {
+'fill-color': '#15f4ee',
+'fill-opacity': 0.5
+//}
+// This is the important part of this example: the addLayer
+// method takes 2 arguments: the layer as an object, and a string
+// representing another layer's name. if the other layer
+// exists in the stylesheet already, the new layer will be positioned
+// right before that layer in the stack, making it possible to put
+// 'overlays' anywhere in the layer stack.
+// Insert the layer beneath the first symbol layer.
+},
+firstSymbolId
+});*/
+{% for i in multipolygonsCoords.keys() %}
+map.addSource('{{i}}', {type:'geojson', 
+	data: {type: "Feature",
+	geometry:{
+		type:'MultiPolygon',
+		coordinates:{{ multipolygonsCoords[i]|tojson }}
+
+	}
+
+	}
+});
+map.addLayer(
+	{'id':'{{ i }}',
+	'type':'fill',
+	'source':'{{ i }}',
+	'layout':{},
+	'paint':{
+	'fill-color': '{{multipolygons[i][0]}}',
+	'fill-opacity': 0.8
+}
+
+});
+{%endfor%}
+{% for i in polygonsCoords.keys() %}
+map.addSource('{{i}}', {type:'geojson', 
+	data: {type: "Feature",
+	geometry:{
+		type:'Polygon',
+		coordinates:{{ polygonsCoords[i]|tojson }}
+
+	}
+
+	}
+	});
+map.addLayer({'id':'{{i}}','type':'fill','source':'{{i}}','paint':{
+	'fill-color': '{{polygons[i][0]}}',
+	'fill-opacity': 0.8}
+});
+{%endfor%}
+
+
+});
+
+
+</script>
+ 
+</body>
+</html>
