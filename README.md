@@ -56,4 +56,8 @@ G_quarantine = model.Q    # quarantine interaction network graph
 beta = model.beta   # value of beta parameter (or list of beta values for each node if using network model)
 # similar for other parameters
 ```
-
+Once you generate the CSV, you can run the flaskapp.py with the following directory structure
+flaskapp.py
+static
+------india_districts.geojson
+------India_CSVs 
